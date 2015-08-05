@@ -1,12 +1,20 @@
-RHadoop Course Material
+#RHadoop Course Material
 =============
 
-Slideshare: https://www.slideshare.net/secret/gDf3JYJRPWzkf5
+Slideshare: https://www.slideshare.net/secret/2WikxQaKqewZnX 
 
 Source Code: http://rpubs.com/ywchiu/25570
 
 Plyrmr Code: http://rpubs.com/ywchiu/plyrmr
 
+## Environment
+
+- 52.74.135.226:8787
+
+- Account: user01 ~ user50 
+
+
+## 2330 Analysis
 
 > tw2330 = read.csv("~/Downloads/tw2330.csv", head=TRUE)
 

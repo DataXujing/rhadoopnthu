@@ -1,0 +1,366 @@
+library("e1071", lib.loc="/usr/lib64/R/library")
+model <- svm(Species ~ ., data = iris)
+prediction = predict(model, iris[,1:4])
+prediction
+table(predict(model, iris[,-5]), iris[,5])
+library("rpart", lib.loc="/usr/lib64/R/library")
+model <- rpart(Species ~ ., data = iris)
+plot(model)
+text(model)
+plot(model, margin = 0.1)
+text(model)
+plot(iris$Petal.Length, iris$Petal.width, col= iris$Species)
+plot(iris$Petal.Length, iris$Petal.Width, col= iris$Species)
+plot(model, margin = 0.1)
+text(model)
+model
+plot(iris$Petal.Length, iris$Petal.Width, col= iris$Species)
+abline(h = 2.45, col= "blue")
+plot(iris$Petal.Length, iris$Petal.Width, col= iris$Species)
+abline(v = 2.45, col= "blue")
+abline(h = 1.75, col= "yellow")
+abline(h = 1.75, col= "orange")
+abline(h = 1.75, col= "purple")
+stock = read.csv("2330.csv", head=TRUE)
+stock = read.csv("table.csv", head=TRUE)
+stock
+nrows(stock)
+nrow(stock)
+str(stock)
+stock$Date = as.Date(stock$Date)
+plot(stock$Date, stock$Close)
+max(stock$Close)
+min(stock$Close)
+boxplot(stock$Close)
+stock$tf = ifelse(stock$Close - stock$Open > 0, TRUE, FALSE)
+head(stock)
+table(stock$tf)
+hdfs.ls('./')
+hdfs.ls('/')
+library(rmr2)
+b.time <- proc.time()
+small.ints= to.dfs(1:100000)
+result = mapreduce(input = small.ints, map = function(k,v)        cbind(v,v^2))
+result = mapreduce(input = small.ints, map = function(k,v)        cbind(v,v^2))
+hdfs.ls('/user/user50')
+hdfs.put('table.csv', '/user/user50/tmp/1.csv')
+hdfs.ls('/user/user50/tmp/')
+hdfs.copy('/user/user50/tmp/1.csv', '/user/user50/tmp/2.csv')
+hdfs.get(/user/user50/tmp/2.csv', './')
+hdfs.get('/user/user50/tmp/2.csv', './')
+hdfs.rename('/user/user50/tmp/2.csv', ''/user/user50/tmp/2330.csv'')
+hdfs.rename('/user/user50/tmp/2.csv', '/user/user50/tmp/2330.csv')
+hdfs.ls('/user/user50/tmp/')
+hdfs.chmod('/user/user50/tmp/1.csv', 777)
+hdfs.delete(' /user/user50/tmp/1.csv')
+hdfs.delete('/user/user50/tmp/1.csv')
+hdfs.rm('/user/user50/tmp/1.csv')
+hdfs.rm('/user/user50/tmp/2330.csv')
+hdfs.info('/user/')
+hdfs.file.info('/user/')
+f = hdfs.file("test.txt","w")
+data(iris)
+hdfs.write(iris,f)
+hdfs.close(f)
+hdfs.ls("test.txt")
+hdfs.cat("test.txt")
+f = hdfs.file("test.txt", "r")
+dfserialized <- hdfs.read(f)
+df <- unserialize(dfserialized)
+df
+hdfs.close(f)
+1:10
+small.ints = to.dfs(1:10)
+library("rmr2", lib.loc="/usr/lib64/R/library")
+small.ints = to.dfs(1:10)
+hdfs.ls('/tmp/')
+from.dfs('/tmp/file73e433764674')
+from.dfs(small.ints)
+hdfs.mkdir('/user/user50/wordcount/data')
+hdfs.put('wc_input.txt', '/user/user50/wordcouint/data/')
+lines = 'car car river      qoo oop              qoo car river oop'
+strsplit(lines)
+strsplit(lines, split=" +")
+unlist(split_lines)
+split_lines = strsplit(lines, split=" +")
+unlist(split_lines)
+keyval(token, 1)
+keyval(tokens, 1)
+tokens= unlist(split_lines)
+keyval(tokens, 1)
+keyval(unlist(strsplit(lines, split= ' +')))
+keyval(unlist(strsplit(lines, split= ' +')), 1)
+map <- function(.,lines) {
+keyval(
+unlist(
+strsplit(
+x = lines,
+split = " +")),
+1)}
+map(NULL, lines)
+reduce <- function(word, counts) {
+keyval(word, sum(counts))
+}
+reduce("car", c(1,1,1))
+sum(c(1,2,3,4,5)
+_
+)
+sum(c(1,2,3,4,5))
+hdfs.root = '/user/user50/wordcount'
+hdfs.data = file.path(hdfs.root, 'data')
+hdfs.out = file.path(hdfs.root, 'out')
+wordcount = function (input, output=NULL) {
+mapreduce(input=input, output=output,
+input.format="text", map=map, reduce=reduce)
+}
+out = wordcount(hdfs.data, hdfs.out)
+results = from.dfs(out)
+results
+map <- function(.,lines) {
+keyval(
+unlist(
+strsplit(
+x = lines,
+split = " +")),
+1)}
+reduce <- function(word, counts) {
+keyval(word, sum(counts))
+}
+hdfs.ls('/user/user50/wordcount/data')
+hdfs.ls('/user/user50/')
+hdfs.ls('/user/user50/wordcouint')
+hdfs.ls('/user/user50/wordcouint/data')
+hdfs.ls('/user/user50/wordcouint/data/')
+hdfs.ls('/user/user50/wordcount/data/')
+hdfs.ls('/user/user50/wordcount/')
+hdfs.ls('/user/user50/wordcount/data')
+hdfs.put('wc_input.txt', '/user/user50/wordcount/data/')
+hdfs.ls('/user/user50/wordcount/data')
+hdfs.cat('/user/user50/wordcount/data/wc_input.txt')
+wordcount = function (input, output=NULL) {
+mapreduce(input=input, output=output,
+input.format="text", map=map, reduce=reduce)
+}
+out = wordcount(hdfs.data, hdfs.out)
+hdfs.data = file.path(hdfs.root, 'data')
+hdfs.out = file.path(hdfs.root, 'out2')
+wordcount = function (input, output=NULL) {
+mapreduce(input=input, output=output,
+input.format="text", map=map, reduce=reduce)
+}
+out = wordcount(hdfs.data, hdfs.out)
+results = from.dfs(out)
+results
+results$val
+order(results$val, decreasing =TRUE)
+results$kry[order(results$val, decreasing =TRUE),]
+results$key[order(results$val, decreasing =TRUE),]
+results$key[order(results$val, decreasing =TRUE)]
+results$key[order(results$val, decreasing =TRUE)][1:10]
+results$key[order(results$val, decreasing =TRUE)][1:20]
+results$key[order(results$val, decreasing =TRUE)][1:30]
+install.packages("rjieba")
+install.packages("jiebaR")
+a.time <- proc.time()
+small.ints2=1:100000
+result.normal = sapply(small.ints2, function(x) x^2)
+proc.time() - a.time
+b.time <- proc.time()
+small.ints= to.dfs(1:100000)
+result = mapreduce(input = small.ints, map = function(k,v)
+cbind(v,v^2))
+proc.time() - b.time
+?rmr.options
+rmr.options(backend = 'local')
+b.time <- proc.time()
+small.ints= to.dfs(1:100000)
+result = mapreduce(input = small.ints, map = function(k,v)
+cbind(v,v^2))
+proc.time() - b.time
+iris
+str(iris)
+􀂇out = mapreduce(to.dfs(1), map = function(k, v)
+rmr.str(v))
+out = mapreduce(to.dfs(1), map = function(k, v)
+rmr.str(v))
+out = mapreduce(to.dfs(1), map = function(k, v)
+rmr.str(v))
+small.ints = to.dfs(1:100)
+1:100
+cbind(1:100, 1:100+2)
+rbind(1:100, 1:100+2)
+small.ints = to.dfs(1:100)
+mapr = mapreduce(input = small.ints,
+map = function(k,v) cbind(v,v^2))
+result = from.dfs(mapr)
+result
+data(mtcars)
+tapply(mtcars$mpg, mtcars$gear, sum)
+out = from.dfs(to.dfs(mtcars))
+out
+wc.map = function(., row) {
+keyval(row$gear, row$mpg)}
+wc.map
+wc.map = function(., row) {
+keyval(row$gear, row$mpg)}
+out = mapreduce(
+input = to.dfs(mtcars),
+output = NULL,
+map = wc.map
+)
+out
+from.dfs(out)
+wc.map = function(., row) {
+keyval(row$gear, row$mpg)}
+out = mapreduce(
+input = to.dfs(mtcars),
+map = wc.map
+)
+from.dfs(out)
+wc.reduce = function(word, val) {
+keyval(word, sum(val))}
+out2 = mapreduce(
+input = to.dfs(mtcars),
+map = wc.map,
+reduce = wc.reduce
+)
+from.dfs(out2)
+wc.map = function(., row) {
+rms.str(row)
+keyval(row$gear, row$mpg)
+}
+wc.reduce = function(word, val) {
+keyval(word, sum(val))}
+out3 = mapreduce(
+input = to.dfs(mtcars),
+map = wc.map,
+reduce = wc.reduce
+)
+wc.map = function(., row) {
+rmr.str(row)
+keyval(row$gear, row$mpg)
+}
+wc.reduce = function(word, val) {
+keyval(word, sum(val))}
+out3 = mapreduce(
+input = to.dfs(mtcars),
+map = wc.map,
+reduce = wc.reduce
+)
+wc.map = function(., row) {
+rmr.str(row)
+keyval(row$gear, row$mpg)
+}
+wc.reduce = function(word, val) {
+rmr.str(val)
+keyval(word, sum(val))}
+out4 = mapreduce(
+input = to.dfs(mtcars),
+map = wc.map,
+reduce = wc.reduce
+)
+wc.map = function(., row) {
+keyval(row$gear, row$mpg)
+}
+wc.reduce = function(word, val) {
+rmr.str(val)
+keyval(word, sum(val))}
+out4 = mapreduce(
+input = to.dfs(mtcars),
+map = wc.map,
+reduce = wc.reduce
+)
+wc.map = function(., row) {
+keyval(row$gear, row$mpg)
+}
+wc.reduce = function(word, val) {
+rmr.str(word)
+rmr.str(val)
+keyval(word, sum(val))}
+out4 = mapreduce(
+input = to.dfs(mtcars),
+map = wc.map,
+reduce = wc.reduce
+)
+wc.map = function(., row) {
+keyval(row$gear, row$mpg)
+}
+wc.reduce = function(word, val) {
+keyval(word, mean(val))}
+out5 = mapreduce(
+input = to.dfs(mtcars),
+map = wc.map,
+reduce = wc.reduce
+)
+from.dfs(out5)
+library(plyrmr)
+plyrmr.options(backend="local")
+where(
+titanic,
+Freq >=100)
+data(Titanic)
+titanic = data.frame(Titanic)
+where(
+titanic,
+Freq >=100)
+plyrmr.options(backend="local")
+data(Titanic)
+titanic = data.frame(Titanic)
+titanic
+where(
+titanic,
+Freq >=100)
+titanic
+where(
+titanic,
+Freq >=100)
+titanic %|%  where(Freq >=100)
+titanic
+titanic %|%  transmute(sum(Freq))
+titanic %|% group(Sex)
+titanic %|% group(Sex) %|% transmute(sum(Freq))
+tidata = to.dfs(data.frame(Titanic), output =
+'/tmp/titanic')
+tidata = to.dfs(data.frame(Titanic), output =
+'/tmp/titanic1')
+input(tidata) %|%  transmute(sum(Freq))
+input(tidata) %|% group(Sex) %|% transmute(sum(Freq))
+input(tidata) %|% count(Sex)
+input(tidata)  %|% sample(n=10)
+input(tidata) %|% top.k(k=5, Freq))
+input(tidata) %|% top.k(k=5, Freq)
+input(tidata) %|% top.k(.k=5, Freq)
+input(tidata) %|% bottom.k(.k=5, Freq)
+convert_tb = data.frame(Label=c("No","Yes"),
+Symbol=c(0,1))
+ctb = to.dfs(convert_tb, output = 'convert')
+as.data.frame(plyrmr::merge(input(tidata), input(ctb),
+by.x="Survived", by.y="Label"))
+file.remove('convert')
+tempreture = read.table("/tmp/tempreture.tab", head=TRUE)
+tempdata = to.dfs(tempreture, output =
+'/tmp/tempreture')
+head(tempreture)
+res = input("/tmp/tempreture") %|%
+group(STN...) %|%
+group(YEARMODA) %|%
+transmute(mean.temp = mean(TEMP))
+head(res)
+from.dfs(res)
+temp = data.frame(res)
+temp
+head(temp)
+head(temp)
+temp[,2] <- as.integer(temp[,2])
+colnames(temp) <- c("station", "yearMonth",
+"mean.temp")
+library(ggplot2)
+ggplot(temp, aes(yearMonth, mean.temp, group=station, colour=station)) + geom_line() + labs(x="Date", y="Temperature in F", title="Changes in Average Temperature") + theme(legend.position = "none") + scale_x_continuous(breaks=20140101:20140226) + stat_summary(fun.y = mean, colour = "red", geom="line", aes(group = 1))
+data(iris)
+data(iris)
+head(iris)
+fit = kmean(iris, k = 3)
+fit = kmeans(iris, k = 3)
+fit = kmeans(iris, 3)
+fit = kmeans(iris[,-5], 3)
+savehistory("~/rhadoopnthu/sample/history.txt")
